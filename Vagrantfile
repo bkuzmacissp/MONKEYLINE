@@ -6,12 +6,12 @@ Vagrant.configure("2") do |config|
     targetserver.vm.box ="boxcutter/ubuntu1604"
 	targetserver.vm.hostname = "server"
 	targetserver.vm.provision :shell, path: "serverbootstrap.sh"
-	targetserver.vm.network :private_network, ip: "192.168.0.5"
+	targetserver.vm.network :private_network, ip: "192.168.0.6"
     end
   config.vm.define "client" do |client|
-    client.vm.box = "boxcutter/ubuntu1604"
+    client.vm.box = "boxcutter/ubuntu1604-i386"
 	client.vm.hostname=  "client"
 	client.vm.provision :shell,path: "clientbootstrap.sh"
-	client.vm.network :private_network, ip: "192.168.0.6"
+	client.vm.network :private_network, ip: "192.168.0.5"
     end
   end
